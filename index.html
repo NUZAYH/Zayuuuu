@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Girlfriend Day...? ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+background:linear-gradient(-45deg,#ff4e9b,#ff8dc7,#ff6fae,#ffc2dd);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+overflow-x:hidden;
+color:white;
+min-height:100vh;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+min-height:100vh;
+position:relative;
+z-index:2;
+}
+
+h1{
+
+font-size:2.8rem;
+font-family:Pacifico,cursive;
+text-shadow:0 0 20px white;
+animation:glow 2s infinite alternate,bounce 2s infinite;
+
+}
+
+@keyframes glow{
+
+from{filter:drop-shadow(0 0 10px white);}
+to{filter:drop-shadow(0 0 30px #ffeff7);}
+}
+
+@keyframes bounce{
+
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+}
+
+.typing{
+
+font-size:1.2rem;
+margin-top:25px;
+max-width:700px;
+line-height:1.8;
+min-height:120px;
+
+}
+
+.card{
+
+margin-top:40px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+padding:25px;
+border-radius:25px;
+box-shadow:0 0 40px rgba(255,255,255,.25);
+animation:float 4s ease-in-out infinite;
+width:100%;
+max-width:500px;
+
+}
+
+@keyframes float{
+
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+}
+
+button{
+
+margin-top:30px;
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+background:white;
+color:#ff2e88;
+font-weight:bold;
+transition:.4s;
+box-shadow:0 0 25px white;
+}
+
+button:hover{
+
+transform:scale(1.1);
+background:#ffe8f4;
+}
+
+.hidden{
+
+display:none;
+margin-top:35px;
+font-size:1.15rem;
+animation:fade 1.2s forwards;
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.heart{
+
+position:fixed;
+bottom:-20px;
+font-size:22px;
+animation:rise linear forwards;
+pointer-events:none;
+opacity:.8;
+}
+
+@keyframes rise{
+
+to{
+transform:translateY(-120vh) rotate(720deg);
+opacity:0;
+}
+
+}
+
+.star{
+
+position:fixed;
+width:4px;
+height:4px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite;
+opacity:.8;
+
+}
+
+@keyframes twinkle{
+
+50%{
+opacity:.2;
+transform:scale(.4);
+}
+
+}
+
+.confetti{
+
+position:fixed;
+width:10px;
+height:10px;
+top:-20px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+to{
+transform:translateY(110vh) rotate(720deg);
+}
+
+}
+
+footer{
+
+margin-top:60px;
+font-size:.9rem;
+opacity:.8;
+
+}
+
+@media(max-width:600px){
+
+h1{
+font-size:2rem;
+}
+
+.typing{
+font-size:1rem;
+}
+
+.card{
+padding:20px;
+}
+
+button{
+width:100%;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Happy August 1st 💖</h1>
+
+<div class="typing" id="typing"></div>
+
+<div class="card">
+
+<h2>To Someone Special 🌸</h2>
+
+<p style="margin-top:15px;line-height:1.8;">
+
+Technically...
+you're not my girlfriend.
+
+<br><br>
+
+Yet. 😌
+
+<br><br>
+
+But if there was anyone I'd want to celebrate today with,
+it would still be you.
+
+</p>
+
+<button onclick="surprise()">
+Tap Here ❤️
+</button>
+
+<div class="hidden" id="message">
+
+<h2>✨ Surprise ✨</h2>
+
+<p style="margin-top:20px;line-height:1.8;">
+
+Maybe calling today "Girlfriend Day"
+is a little early...
+
+But maybe...
+
+just maybe...
+
+one day,
+I'll be lucky enough
+to actually wish you
+"Happy Girlfriend Day"
+without adding the word
+"yet."
+
+❤️
+
+</p>
+
+</div>
+
+</div>
+
+<footer>
+
+Made with way too many butterflies 🦋
+
+</footer>
+
+</div>
+
+<script>
+
+const text=
+"Happy Girlfriend Day... or should I say Happy Future Girlfriend Day? 😅💖 I know we're not there yet, but I couldn't let today pass without reminding you how amazing, beautiful, kind, and incredibly special you are. Every conversation with you makes my day brighter, and honestly... you're already someone who means a lot to me.";
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,35);
+
+}
+
+}
+
+type();
+
+function hearts(){
+
+const h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML=Math.random()>0.5?"❤️":"💖";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.fontSize=(18+Math.random()*25)+"px";
+
+h.style.animationDuration=(5+Math.random()*4)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),9000);
+
+}
+
+setInterval(hearts,250);
+
+function stars(){
+
+for(let i=0;i<60;i++){
+
+let s=document.createElement("div");
+
+s.className="star";
+
+s.style.left=Math.random()*100+"vw";
+
+s.style.top=Math.random()*100+"vh";
+
+s.style.animationDelay=Math.random()*3+"s";
+
+document.body.appendChild(s);
+
+}
+
+}
+
+stars();
+
+function confetti(){
+
+const colors=["#fff","#ffeb3b","#ff4081","#00e5ff","#7cffcb"];
+
+for(let i=0;i<120;i++){
+
+let c=document.createElement("div");
+
+c.className="confetti";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.background=colors[Math.floor(Math.random()*colors.length)];
+
+c.style.animationDuration=(3+Math.random()*3)+"s";
+
+c.style.width=(6+Math.random()*8)+"px";
+
+c.style.height=c.style.width;
+
+document.body.appendChild(c);
+
+setTimeout(()=>c.remove(),7000);
+
+}
+
+}
+
+function surprise(){
+
+document.getElementById("message").style.display="block";
+
+confetti();
+
+}
+
+</script>
+
+</body>
+</html>
